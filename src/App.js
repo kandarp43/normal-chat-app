@@ -1,5 +1,14 @@
+import { useState } from 'react'
+import Login from './Components/Login'
+
 function App() {
-  return <div>hello chat App</div>
+  const [id, setId] = useState()
+  return (
+    <>
+      {id}
+      <Login onIdSubmit={setId} />
+    </>
+  )
 }
 
 export default App
