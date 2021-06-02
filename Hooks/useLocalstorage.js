@@ -11,8 +11,7 @@ function useLocalstorage(key, initialValue) {
     } else {
       return initialValue
     }
-  }) 
-  
+  })
 
   useEffect(() => {
     localStorage.setItem(prefixedKey, JSON.stringify(value))
