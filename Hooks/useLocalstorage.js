@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 const PREFIX = 'Normal-chat-'
 function useLocalstorage(key, initialValue) {
   const prefixedKey = PREFIX + key
-  let a = 10
   const [value, setValue] = useState(() => {
     const jsonValue = localStorage.getItem(prefixedKey)
     if (jsonValue != null) return JSON.parse(jsonValue)
