@@ -6,7 +6,7 @@ import Contacts from './Contacts'
 const CONVERSATIONS_KEY = 'conversations'
 const CONTACTS_KEY = 'contacts'
 
-function Sidebar({ id }) {
+function Sidebar() {
   const [activekey, setActivekey] = useState(CONVERSATIONS_KEY)
   return (
     <div style={{ width: '250px' }} className='d-flex flex-column'>
