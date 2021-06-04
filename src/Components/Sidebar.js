@@ -19,8 +19,8 @@ function Sidebar() {
             <Nav.Link eventKey={CONTACTS_KEY}>Contacts</Nav.Link>
           </Nav.Item>
         </Nav>
-        <Tab.Content className='overflow-auto flex-grow-1'>
-          <Tab.Pane eventKey={CONVERSATIONS_KEY}>
+        <Tab.Content className='border border-top-0 border-bottom-0'>
+          <Tab.Pane eventKey={CONVERSATIONS_KEY} className=''>
             <Conversations />
           </Tab.Pane>
           <Tab.Pane eventKey={CONTACTS_KEY}>
