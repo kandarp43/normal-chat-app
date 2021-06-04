@@ -19,7 +19,7 @@ function Sidebar({ id }) {
             <Nav.Link eventKey={CONTACTS_KEY}>Contacts</Nav.Link>
           </Nav.Item>
         </Nav>
-        <Tab.Content>
+        <Tab.Content className='border-right overflow-auto flex-grow-1'>
           <Tab.Pane eventKey={CONVERSATIONS_KEY}>
             <Conversations />
           </Tab.Pane>
