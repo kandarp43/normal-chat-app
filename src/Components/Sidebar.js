@@ -14,6 +14,9 @@ function Sidebar({ id }) {
             <Nav.Link eventKey='contacts'>Contacts</Nav.Link>
           </Nav.Item>
         </Nav>
+        <Tab.Content>
+          <Tab.Pane eventKey='conversations'>hello</Tab.Pane>
+        </Tab.Content>
       </Tab.Container>
     </div>
   )
