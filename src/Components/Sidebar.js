@@ -6,7 +6,7 @@ import Contacts from './Contacts'
 const CONVERSATIONS_KEY = 'conversations'
 const CONTACTS_KEY = 'contacts'
 
-function Sidebar() {
+function Sidebar({ id }) {
   const [activekey, setActivekey] = useState(CONVERSATIONS_KEY)
   return (
     <div style={{ width: '250px' }} className='d-flex flex-column'>
@@ -27,6 +27,7 @@ function Sidebar() {
             <Contacts />
           </Tab.Pane>
         </Tab.Content>
+        Your I'd : <span className='text-muted'>{id}</span>
       </Tab.Container>
     </div>
   )
