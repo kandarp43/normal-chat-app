@@ -7,7 +7,7 @@ function NewConversationModal({ closeModal }) {
   }
   return (
     <>
-      <Modal.Header> create Contact</Modal.Header>
+      <Modal.Header> create Conversation</Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group>
