@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
 function NewContactModal({ closeModal }) {
+  const idRef = useRef()
   function handleSubmit(e) {
     e.preventDefault()
   }
@@ -11,8 +12,8 @@ function NewContactModal({ closeModal }) {
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group>
-            <Form.Label></Form.Label>
-            <Form.Control></Form.Control>
+            <Form.Label>Name</Form.Label>
+            <Form.Control type='text' ref={idRef} required></Form.Control>
           </Form.Group>
         </Form>
       </Modal.Body>
