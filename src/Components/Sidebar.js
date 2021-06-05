@@ -10,6 +10,12 @@ const CONTACTS_KEY = 'contacts'
 
 function Sidebar({ id }) {
   const [activekey, setActivekey] = useState(CONVERSATIONS_KEY)
+  const [modalOpen, setModalOpen] = useState(false)
+
+  function closeModal() {
+    setModalOpen(false)
+  }
+
   const conversationsOpen = activekey === CONVERSATIONS_KEY
   return (
     <div style={{ width: '250px' }} className='d-flex flex-column'>
@@ -33,12 +39,16 @@ function Sidebar({ id }) {
         <div className='p-2 border border-left-0 border-bottom-0 small'>
           Your I'd : <span className='text-muted'>{id}</span>
         </div>
-        <Button className='rounded-0'>
+        <Button onClick={() => setModalOpen(true)} className='rounded-0'>
           new {conversationsOpen ? 'conversation' : 'contacts'}
         </Button>
       </Tab.Container>
-      <Modal show={true} onHide={false}>
-        {conversationsOpen ? <NewConversationModal /> : <NewContactModal />}
+      <Modal show={modalOpen} onHide={closeModal}>
+        {conversationsOpen ? (
+          <NewConversationModal closeModal={closeModal} />
+        ) : (
+          <NewContactModal closeModal={closeModal} />
+        )}
       </Modal>
     </div>
   )
