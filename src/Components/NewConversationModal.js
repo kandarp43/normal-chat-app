@@ -1,8 +1,15 @@
 import React from 'react'
-import { Modal } from 'react-bootstrap'
+import { Form, Modal } from 'react-bootstrap'
 
 function NewConversationModal({ closeModal }) {
-  return <Modal.Header close> create Contact</Modal.Header>
+  return (
+    <>
+      <Modal.Header> create Contact</Modal.Header>
+      <Modal.Body>
+          <Form></Form>
+      </Modal.Body>
+    </>
+  )
 }
 
 export default NewConversationModal
