@@ -2,11 +2,19 @@ import React from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
 function NewConversationModal({ closeModal }) {
+  function handleSubmit(e) {
+    e.preventDefault()
+  }
   return (
     <>
       <Modal.Header> create Contact</Modal.Header>
       <Modal.Body>
-          <Form></Form>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Label></Form.Label>
+            <Form.Control></Form.Control>
+          </Form.Group>
+        </Form>
       </Modal.Body>
     </>
   )
