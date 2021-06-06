@@ -7,7 +7,9 @@ export function ContactsProvider({ children }) {
   const [contacts, setContacts] = useLocalstorage('contacts', [])
 
   const createContact = (id, name) => {
-    setContacts()
+    setContacts((prevContacts) => {
+      return [...prevContacts, { id, name }]
+    })
   }
   return (
     <contactsContext.provider value={{ contacts, createContact }}>
