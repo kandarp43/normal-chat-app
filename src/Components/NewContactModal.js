@@ -5,10 +5,10 @@ import { useContacts } from '../Contexts/contactsContext'
 function NewContactModal({ closeModal }) {
   const idRef = useRef()
   const nameRef = useRef()
-  const { createContext } = useContacts()
+  const { createContact } = useContacts()
   function handleSubmit(e) {
     e.preventDefault()
-    // createContact(idRef.current.value, nameRef.current.value)
+    createContact(idRef.current.value, nameRef.current.value)
     closeModal()
   }
   return (
