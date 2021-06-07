@@ -7,6 +7,11 @@ function NewConversationModal({ closeModal }) {
   const idRef = useRef()
   const nameRef = useRef()
   const { contacts, createContact } = useContacts()
+
+  function handleCheckboxChange(id) {
+      setSelectedContactIds()
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
     createContact(idRef.current.value, nameRef.current.value)
@@ -25,6 +30,7 @@ function NewConversationModal({ closeModal }) {
                     type='checkbox'
                     value={selectedContactIds.includes(contact.id)}
                     label={contact.name}
+                    onChange={() => handleCheckboxChange(contact.id)}
                   />
                 </Form.Group>
               ))}
