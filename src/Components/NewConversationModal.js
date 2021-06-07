@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
-import { Button, Form, Modal } from 'react-bootstrap'
+import { Button, Form, ListGroup, Modal } from 'react-bootstrap'
 import { useContacts } from '../Contexts/ContactsProvider'
 
 function NewConversationModal({ closeModal }) {
   const idRef = useRef()
   const nameRef = useRef()
-  const { createContact } = useContacts()
+  const { contacts, createContact } = useContacts()
   function handleSubmit(e) {
     e.preventDefault()
     createContact(idRef.current.value, nameRef.current.value)
@@ -16,17 +16,11 @@ function NewConversationModal({ closeModal }) {
       <Modal.Header> create Conversation</Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
-          <Form.Group>
-            <Form.Label>Id</Form.Label>
-            <Form.Control type='text' ref={idRef} required />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Name</Form.Label>
-            <Form.Control type='text' ref={nameRef} required />
-          </Form.Group>
-          <Button type='submit' className='mt-3'>
-            submit
-          </Button>
+          {contacts.length === 0
+            ? 'No Contacts'
+            : contacts.map((contact) => (
+                <Form.Group key={contact.id}>{contact.name}</Form.Group>
+              ))}
         </Form>
       </Modal.Body>
     </>
