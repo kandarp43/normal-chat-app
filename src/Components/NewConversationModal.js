@@ -2,9 +2,8 @@ import React, { useRef } from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
 function NewConversationModal({ closeModal }) {
-
-    const idRef = useRef()
-    const nameRef = useRef()
+  const idRef = useRef()
+  const nameRef = useRef()
   function handleSubmit(e) {
     e.preventDefault()
   }
