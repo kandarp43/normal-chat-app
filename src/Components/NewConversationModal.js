@@ -1,8 +1,9 @@
-import React, { useRef } from 'react'
-import { Button, Form, ListGroup, Modal } from 'react-bootstrap'
+import React, { useRef, useState } from 'react'
+import { Button, Form, Modal } from 'react-bootstrap'
 import { useContacts } from '../Contexts/ContactsProvider'
 
 function NewConversationModal({ closeModal }) {
+  const [selectedContactIds, setSelectedContactIds] = useState([])
   const idRef = useRef()
   const nameRef = useRef()
   const { contacts, createContact } = useContacts()
@@ -19,8 +20,17 @@ function NewConversationModal({ closeModal }) {
           {contacts.length === 0
             ? 'No Contacts'
             : contacts.map((contact) => (
-                <Form.Group key={contact.id}>{contact.name}</Form.Group>
+                <Form.Group controlId={contact.id} key={contact.id}>
+                  <Form.Check
+                    type='checkbox'
+                    value={selectedContactIds.includes(contact.id)}
+                    label={contact.name}
+                  />
+                </Form.Group>
               ))}
+          <Button type='submit' className='mt-3'>
+            submit
+          </Button>
         </Form>
       </Modal.Body>
     </>
