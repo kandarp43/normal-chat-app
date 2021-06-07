@@ -4,7 +4,7 @@ import useLocalstorage from '../Hooks/useLocalstorage'
 const contactsContext = createContext()
 
 export function useContacts() {
-    return useContext(contactsContext)
+  return useContext(contactsContext)
 }
 
 export function ContactsProvider({ children }) {
@@ -16,8 +16,8 @@ export function ContactsProvider({ children }) {
     })
   }
   return (
-    <contactsContext.provider value={{ contacts, createContact }}>
+    <contactsContext.Provider value={{ contacts, createContact }}>
       {children}
-    </contactsContext.provider>
+    </contactsContext.Provider>
   )
 }
