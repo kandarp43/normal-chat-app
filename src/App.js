@@ -5,6 +5,10 @@ import useLocalstorage from './Hooks/useLocalstorage'
 
 function App() {
   const [id, setId] = useLocalstorage('id')
+
+  const dashboard =(
+    
+  )
   return id ? <Dashboard id={id} /> : <Login onIdSubmit={setId} />
 }
 
