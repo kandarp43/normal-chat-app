@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Form, Modal } from 'react-bootstrap'
+import { Button, Form, Modal } from 'react-bootstrap'
 
 function NewConversationModal({ closeModal }) {
   const idRef = useRef()
@@ -20,6 +20,9 @@ function NewConversationModal({ closeModal }) {
             <Form.Label>Name</Form.Label>
             <Form.Control type='text' ref={nameRef} required />
           </Form.Group>
+          <Button type='submit' className='mt-3'>
+            submit
+          </Button>
         </Form>
       </Modal.Body>
     </>
