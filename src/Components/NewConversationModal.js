@@ -15,7 +15,7 @@ function NewConversationModal({ closeModal }) {
           return contactId !== prevId
         })
       } else {
-        return { ...prevSelectedContactIds, contactId }
+        return [...prevSelectedContactIds, contactId]
       }
     })
   }
@@ -30,18 +30,17 @@ function NewConversationModal({ closeModal }) {
       <Modal.Header> create Conversation</Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
-          {contacts.length === 0
-            ? 'No Contacts'
-            : contacts.map((contact) => (
-                <Form.Group controlId={contact.id} key={contact.id}>
-                  <Form.Check
-                    type='checkbox'
-                    value={selectedContactIds.includes(contact.id)}
-                    label={contact.name}
-                    onChange={() => handleCheckboxChange(contact.id)}
-                  />
-                </Form.Group>
-              ))}
+          {contacts.map((contact) => (
+            <Form.Group controlId={contact.id} key={contact.id}>
+              <Form.Check
+                type='checkbox'
+                value={selectedContactIds.includes(contact.id)}
+                label={contact.name}
+                className='mb-3'
+                onChange={() => handleCheckboxChange(contact.id)}
+              />
+            </Form.Group>
+          ))}
           <Button type='submit' className='mt-3'>
             submit
           </Button>
