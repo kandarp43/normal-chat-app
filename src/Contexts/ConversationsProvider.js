@@ -8,15 +8,15 @@ export function useConversations() {
 }
 
 export function ConversationsProvider({ children }) {
-  const [contacts, setContacts] = useLocalstorage('contacts', [])
+  const [conversations, setContacts] = useLocalstorage('contacts', [])
 
-  const createContact = (id, name) => {
+  const createConversation = (id, name) => {
     setContacts((prevContacts) => {
       return [...prevContacts, { id, name }]
     })
   }
   return (
-    <conversationContext.Provider value={{ contacts, createContact }}>
+    <conversationContext.Provider value={{ conversations, createConversation }}>
       {children}
     </conversationContext.Provider>
   )
