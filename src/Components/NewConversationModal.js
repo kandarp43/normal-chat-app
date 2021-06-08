@@ -11,9 +11,11 @@ function NewConversationModal({ closeModal }) {
   function handleCheckboxChange(contactId) {
     setSelectedContactIds((prevSelectedContactIds) => {
       if (prevSelectedContactIds.includes(contactId)) {
-          return prevSelectedContactIds.filter(prevId=>{
-              return contactId !== prevId
-          })
+        return prevSelectedContactIds.filter((prevId) => {
+          return contactId !== prevId
+        })
+      } else {
+        return { ...prevSelectedContactIds }
       }
     })
   }
