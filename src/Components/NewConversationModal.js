@@ -9,7 +9,10 @@ function NewConversationModal({ closeModal }) {
   const { contacts, createContact } = useContacts()
 
   function handleCheckboxChange(id) {
-      setSelectedContactIds()
+    setSelectedContactIds((prevSelectedContactIds) => {
+      if (prevSelectedContactIds.includes(contacts.id)) {
+      }
+    })
   }
 
   function handleSubmit(e) {
