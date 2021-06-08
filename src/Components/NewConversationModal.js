@@ -1,12 +1,12 @@
 import React, { /* useRef, */ useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 import { useContacts } from '../Contexts/ContactsProvider'
+import { useConversations } from '../Contexts/ConversationsProvider'
 
 function NewConversationModal({ closeModal }) {
   const [selectedContactIds, setSelectedContactIds] = useState([])
-  //   const idRef = useRef()
-  //   const nameRef = useRef()
   const { contacts } = useContacts()
+  const { createConversation } = useConversations()
 
   function handleCheckboxChange(contactId) {
     setSelectedContactIds((prevSelectedContactIds) => {
@@ -22,7 +22,7 @@ function NewConversationModal({ closeModal }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // createContact(idRef.current.value, nameRef.current.value)
+    createConversation(selectedContactIds)
     closeModal()
   }
   return (
