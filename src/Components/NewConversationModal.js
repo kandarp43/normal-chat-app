@@ -4,9 +4,9 @@ import { useContacts } from '../Contexts/ContactsProvider'
 
 function NewConversationModal({ closeModal }) {
   const [selectedContactIds, setSelectedContactIds] = useState([])
-  const idRef = useRef()
-  const nameRef = useRef()
-  const { contacts, createContact } = useContacts()
+//   const idRef = useRef()
+//   const nameRef = useRef()
+  const { contacts,  } = useContacts()
 
   function handleCheckboxChange(contactId) {
     setSelectedContactIds((prevSelectedContactIds) => {
@@ -15,14 +15,14 @@ function NewConversationModal({ closeModal }) {
           return contactId !== prevId
         })
       } else {
-        return { ...prevSelectedContactIds }
+        return { ...prevSelectedContactIds, contactId }
       }
     })
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    createContact(idRef.current.value, nameRef.current.value)
+    // createContact(idRef.current.value, nameRef.current.value)
     closeModal()
   }
   return (
