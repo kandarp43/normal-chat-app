@@ -8,9 +8,12 @@ function NewConversationModal({ closeModal }) {
   const nameRef = useRef()
   const { contacts, createContact } = useContacts()
 
-  function handleCheckboxChange(id) {
+  function handleCheckboxChange(contactId) {
     setSelectedContactIds((prevSelectedContactIds) => {
-      if (prevSelectedContactIds.includes(contacts.id)) {
+      if (prevSelectedContactIds.includes(contactId)) {
+          return prevSelectedContactIds.filter(prevId=>{
+              return contactId !== prevId
+          })
       }
     })
   }
