@@ -9,7 +9,12 @@ function OpenConversation() {
       <Form>
         <Form.Group>
           <InputGroup>
-            <Form.Control as='textarea' required value={text} />
+            <Form.Control
+              as='textarea'
+              required
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
           </InputGroup>
         </Form.Group>
       </Form>
