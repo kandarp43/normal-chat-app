@@ -24,10 +24,15 @@ export function ConversationsProvider({ children }) {
       const contact = contacts.find((contact) => {
         return contact.id === recipient
       })
+      const name = (contact && contact.name) || recipient
+      return { id: recipient, name }
     })
+    return { ...conversations, recipients }
   })
   return (
-    <conversationContext.Provider value={{ conversations, createConversation }}>
+    <conversationContext.Provider
+      value={{ conversations: formattedConversations, createConversation }}
+    >
       {children}
     </conversationContext.Provider>
   )
