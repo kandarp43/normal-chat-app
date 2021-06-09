@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, InputGroup } from 'react-bootstrap'
 
 function OpenConversation() {
+  const [text, setText] = useState()
   return (
     <div className='d-flex flex-column flex-grow-1'>
       <div className='flex-grow-1 overflow-auto'></div>
