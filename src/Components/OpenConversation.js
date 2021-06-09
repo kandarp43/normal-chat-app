@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { Button, Form, InputGroup } from 'react-bootstrap'
+import { useConversations } from '../Contexts/ConversationsProvider'
 
 function OpenConversation() {
   const [text, setText] = useState('')
+  const { sendMessage, selectedConversation } = useConversations()
   function handleSubmit(e) {
     e.preventDefault()
+    sendMessage(
+      selectedConversation.recipients.map((recipient) => recipient.id)
+    )
   }
   return (
     <div className='d-flex flex-column flex-grow-1'>
