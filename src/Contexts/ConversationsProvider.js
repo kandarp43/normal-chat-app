@@ -29,10 +29,10 @@ export function ConversationsProvider({ children }) {
     })
     return { ...conversations, recipients }
   })
+
+  const value = { conversations: formattedConversations, createConversation }
   return (
-    <conversationContext.Provider
-      value={{ conversations: formattedConversations, createConversation }}
-    >
+    <conversationContext.Provider value={value}>
       {children}
     </conversationContext.Provider>
   )
