@@ -13,7 +13,7 @@ function Conversations() {
               <ListGroup.Item
                 key={index}
                 action
-                onClick={selectedConversationIndex(index)}
+                onClick={() => selectedConversationIndex(index)}
                 active={conversation.selected}
               >
                 {conversation.recipients
