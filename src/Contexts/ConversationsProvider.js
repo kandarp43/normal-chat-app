@@ -24,7 +24,11 @@ export function ConversationsProvider({ id, children }) {
     setConversations((prevConversation) => {
       let madeChange = false
       const newMessage = { sender, text }
-
+      const newConversations = prevConversation.map((conversation) => {
+        if (arrayEquality(conversation.recipients, recipients)) {
+          madeChange = true
+        }
+      })
       if (madeChange) {
       } else {
         return [...prevConversation, { recipients, messages: [newMessage] }]
