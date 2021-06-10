@@ -8,8 +8,10 @@ function OpenConversation() {
   function handleSubmit(e) {
     e.preventDefault()
     sendMessage(
-      selectedConversation.recipients.map((recipient) => recipient.id)
+      selectedConversation.recipients.map((recipient) => recipient.id),
+      text
     )
+    setText('')
   }
   return (
     <div className='d-flex flex-column flex-grow-1'>
@@ -24,10 +26,8 @@ function OpenConversation() {
               onChange={(e) => setText(e.target.value)}
               style={{ height: '40px', resize: 'none' }}
             />
-          </InputGroup>
-          <InputGroup.Append>
             <Button type='submit'>Send</Button>
-          </InputGroup.Append>
+          </InputGroup>
         </Form.Group>
       </Form>
     </div>
