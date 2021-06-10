@@ -20,7 +20,9 @@ export function ConversationsProvider({ id, children }) {
     })
   }
 
-  const addMessageToConversation = ({ recipients, text, sender }) => {}
+  const addMessageToConversation = ({ recipients, text, sender }) => {
+    setConversations(prevConversation=>{})
+  }
 
   const sendMessage = (recipients, text) => {
     addMessageToConversation({ recipients, text, sender: id })
