@@ -19,7 +19,8 @@ export function ConversationsProvider({ children }) {
       return [...prevConversation, { recipients, messages: [] }]
     })
   }
-  
+
+  const addMessageToConversation = ({ recipients, text, sender }) => {}
 
   const formattedConversations = conversations.map((conversation, index) => {
     const recipients = conversation.recipients.map((recipient) => {
