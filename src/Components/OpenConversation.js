@@ -1,10 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Button, Form, InputGroup } from 'react-bootstrap'
 import { useConversations } from '../Contexts/ConversationsProvider'
 
 function OpenConversation() {
   const [text, setText] = useState('')
   const lastMessageRef = useRef()
+  const setRef = useCallback((node) => {
+    node.scrollIntoView({ smooth: true })
+  }, [])
 
   const { sendMessage, selectedConversation } = useConversations()
   function handleSubmit(e) {
@@ -30,7 +33,7 @@ function OpenConversation() {
               selectedConversation.messages.length - 1 === index
             return (
               <div
-                ref={lastMessage ? lastMessageRef : null}
+                ref={lastMessage ? setRef : null}
                 key={index}
                 className={`my-1 d-flex flex-column ${
                   message.fromMe ? 'align-self-end' : ''
