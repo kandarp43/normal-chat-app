@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Form, InputGroup } from 'react-bootstrap'
 import { useConversations } from '../Contexts/ConversationsProvider'
 
 function OpenConversation() {
   const [text, setText] = useState('')
+  const lastMessageRef = useRef()
+
   const { sendMessage, selectedConversation } = useConversations()
   function handleSubmit(e) {
     e.preventDefault()
@@ -13,12 +15,12 @@ function OpenConversation() {
     )
     setText('')
   }
+  
+  useEffect(() => {}, [])
   return (
     <div className='d-flex flex-column flex-grow-1'>
       <div className='flex-grow-1 overflow-auto '>
-        <div
-          className='d-flex flex-column flex-grow-1 px-3 align-self-end justify-content-end'
-        >
+        <div className='d-flex flex-column align-items-start justify-content-end px-3'>
           {selectedConversation.messages.map((message, index) => {
             return (
               <div
