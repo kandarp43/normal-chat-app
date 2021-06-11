@@ -20,11 +20,6 @@ function OpenConversation() {
     setText('')
   }
 
-  useEffect(() => {
-    if (lastMessageRef.current) {
-      lastMessageRef.current.scrollIntoView({ smooth: true })
-    }
-  })
   return (
     <div className='d-flex flex-column flex-grow-1'>
       <div className='flex-grow-1 overflow-auto '>
