@@ -20,7 +20,8 @@ export function ConversationsProvider({ id, children }) {
   const [selectedConversationIndex, setSelectedConversationIndex] = useState(0)
 
   const { contacts } = useContacts()
-  const { socket } = useSocket()
+  const socket = useSocket()
+  console.log(socket)
 
   const createConversation = (recipients) => {
     setConversations((prevConversation) => {
@@ -61,7 +62,7 @@ export function ConversationsProvider({ id, children }) {
   }, [socket, addMessageToConversation])
 
   const sendMessage = (recipients, text) => {
-    socket.emit('sen  d-message', { recipients, text })
+    socket.emit('send-message', { recipients, text })
     addMessageToConversation({ recipients, text, sender: id })
   }
 
