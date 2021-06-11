@@ -9,11 +9,18 @@ export function useSocket() {
 
 export function SocketProvider({ id, children }) {
   const [socket, setSocket] = useState()
+
   useEffect(() => {
+    var connectionOptions = {
+      'force new connection': true,
+      reconnectionAttempts: 'Infinity',
+      timeout: 10000,
+      transports: ['websocket', 'polling', 'flashsocket'],
+    }
     const newSocket = io(
       'http://localhost:5000',
       { query: { id } },
-      { transports: ['websocket', 'polling', 'flashsocket'] }
+      connectionOptions
     )
     setSocket(newSocket)
 

@@ -21,7 +21,6 @@ export function ConversationsProvider({ id, children }) {
 
   const { contacts } = useContacts()
   const socket = useSocket()
-  console.log(socket)
 
   const createConversation = (recipients) => {
     setConversations((prevConversation) => {
