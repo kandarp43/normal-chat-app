@@ -1,12 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Button, Form, InputGroup } from 'react-bootstrap'
 import { useConversations } from '../Contexts/ConversationsProvider'
 
 function OpenConversation() {
   const [text, setText] = useState('')
-  const lastMessageRef = useRef()
   const setRef = useCallback((node) => {
-    node.scrollIntoView({ smooth: true })
+    if (node) {
+      node.scrollIntoView({ smooth: true })
+    }
   }, [])
 
   const { sendMessage, selectedConversation } = useConversations()
