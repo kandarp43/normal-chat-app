@@ -16,14 +16,17 @@ function OpenConversation() {
   return (
     <div className='d-flex flex-column flex-grow-1'>
       <div className='flex-grow-1 overflow-auto '>
-        <div className='d-flex flex-column px-3 align-items-end justify-content-end'>
+        <div
+          className='d-flex flex-column flex-grow-1 px-3 align-self-end justify-content-end'
+          style={{ alignItems: 'flex-end' }}
+        >
           {selectedConversation.messages.map((message, index) => {
             return (
               <div
                 key={index}
                 className={`my-1 d-flex flex-column ${
                   message.fromMe ? 'align-self-end' : ''
-                } `}
+                }`}
               >
                 <div
                   className={`rounded px-2 py-1 ${
