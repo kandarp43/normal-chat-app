@@ -15,8 +15,8 @@ function OpenConversation() {
   }
   return (
     <div className='d-flex flex-column flex-grow-1'>
-      <div className='flex-grow-1 overflow-auto'>
-        <div className='h-auto d-flex flex-column align-items-start justify-content-end px-3'>
+      <div className='flex-grow-1 overflow-auto '>
+        <div className='d-flex flex-column px-3 align-items-end justify-content-end'>
           {selectedConversation.messages.map((message, index) => {
             return (
               <div
@@ -34,7 +34,7 @@ function OpenConversation() {
                 </div>
                 <div
                   className={`text-muted small ${
-                    message.fromMe ? 'text-right' : ''
+                    message.fromMe ? 'text-end' : ''
                   }`}
                 >
                   {message.fromMe ? 'You' : message.senderName}
