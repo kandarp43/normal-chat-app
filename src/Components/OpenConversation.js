@@ -38,7 +38,7 @@ function OpenConversation() {
                 }`}
               >
                 <div
-                  className={`rounded px-2 py-1 ${
+                  className={`rounded px-2 py-2 ${
                     message.fromMe ? 'bg-primary text-white' : 'border'
                   }`}
                 >
