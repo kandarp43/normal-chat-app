@@ -18,7 +18,6 @@ function OpenConversation() {
       <div className='flex-grow-1 overflow-auto '>
         <div
           className='d-flex flex-column flex-grow-1 px-3 align-self-end justify-content-end'
-          style={{ alignItems: 'flex-end' }}
         >
           {selectedConversation.messages.map((message, index) => {
             return (
