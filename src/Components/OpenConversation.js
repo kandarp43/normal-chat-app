@@ -28,6 +28,7 @@ function OpenConversation() {
           {selectedConversation.messages.map((message, index) => {
             return (
               <div
+                ref={lastMessageRef}
                 key={index}
                 className={`my-1 d-flex flex-column ${
                   message.fromMe ? 'align-self-end' : ''
